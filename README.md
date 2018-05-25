@@ -4,4 +4,4 @@ This repository contains Jupyter notebooks for public access to the MAMI Path Tr
 
 The following notebooks are available:
 
-- [ecn-queries](ecn-queries.ipynb): queries for multipoint ECN measurements
+- [ecn-queries](ecn-queries.ipynb): queries for multipoint ECN measurements, used to generate plots in the IMC 2017 submission.
