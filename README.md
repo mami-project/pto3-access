@@ -1,2 +1,7 @@
 # pto3-access
-Accessing the MAMI Path Transparency Observatory for analysis using Jupyter notebooks
+
+This repository contains Jupyter notebooks for public access to the MAMI Path Transparency Observatory, and supporting client code.
+
+The following notebooks are available:
+
+- [ecn-queries](ecn-queries.ipynb): queries for multipoint ECN measurements
