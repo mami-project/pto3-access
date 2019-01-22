@@ -7,7 +7,6 @@ from collections import deque
 import requests
 import pandas as pd
 import numpy as np
-import networkx as nx
 import dateparser
 
 def _as_time_query_string(v):
@@ -391,7 +390,7 @@ class PTOClient:
         self._baseurl = baseurl
         self._token = token
     
-    def sets_by_metadata(self, k=None, v=None, source=None, analyzer=None):
+    def sets_by_metadata(self, k=None, v=None, source=None, analyzer=None, condition=None):
         params = {}
         
         if k:
@@ -402,6 +401,8 @@ class PTOClient:
             params["source"] = source
         if analyzer:
             params["analyzer"] = analyzer
+        if condition:
+            params["condition"] = condition
         
         r = requests.get(self._baseurl+"obs/by_metadata", params=params,
                          headers = _headers_for_token(self._token))
@@ -533,11 +534,3 @@ class Provenance():
                 break
 
             url = urlq.popleft()
-
-    def as_nxgraph(self):
-        g = nx.DiGraph()
-        for a in self._edges:
-            for b in self._edges[a]:
-                g.add_edge(a, b)
-        
-        return g
